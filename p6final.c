@@ -1,36 +1,55 @@
-#include <stdio.h>
 
-void input_string(char *a)
+⌄
+⌄
+⌄
+⌄
+⌄
+⌄
+#include<stdio.h>
+void get_string(char *s)
 {
-  printf("Enter the string:\n");
-  scanf("%s", a);
+  printf("Enter a string\n");
+  scanf("%s",s);
 }
 
-void str_reverse(char *str, char *rev_str)
+int string_length(char *s)
 {
-  int n;
-  for (n = 0; str[n]; n++);
-  n--;
-  int i;
-  for (i = 0; str[i]; i++)
+  for(int i=0;s[i]!= '\0';i++);
+  return i;
+}
+
+char *string_copy(char *d, char *s)
+{
+  for(int i=0;s[i]!= '\0';i++);
+    d[i]=s[i];
+  return d;
+}
+char *string_rev(char *s)
+{
+  int length = string_lenght(s);
+  length -= 1;
+  char t;
+  for(int i=0; i < lenght/2; i++)
   {
-    rev_str[i] = str[n];
-    n--;
+    t = s[i];
+    s[i] = s[length - i]
+    s[length - 1] = t;
   }
-  rev_str[i] = '\0';
+  return s;
 }
 
-void output(char *a, char *reverse_a)
+void output(char *s, char *r)
 {
-  printf("The reverse of %s is %s\n", a, reverse_a);
+  printf("The reverse of %s is %s\n",s,r);
 }
 
 int main()
 {
-  char str[10];
-  input_string(str);
-  char rev_str[10];
-  str_reverse(str, rev_str);
-  output(str, rev_str);
+  char s[100];
+  get_string(s);
+  char original[100];
+  string_copy(original, s);
+  string_rev(s);
+  ouput(original,s);
   return 0;
 }
